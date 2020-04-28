@@ -1,0 +1,17 @@
+.timer-display {
+  background-color: #aaa;
+}
+
+h2 {
+  text-align: center;
+}
+
+.time-left {
+  text-align: center;
+}
+
+.timer-display-controls {
+  display: flex;
+  justify-content: space-around ;
+  
+}

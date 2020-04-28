@@ -1,0 +1,16 @@
+.timer-length-panel {
+  /* remove */
+  background-color: #ddd;
+  
+  width: 40%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.buttons-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

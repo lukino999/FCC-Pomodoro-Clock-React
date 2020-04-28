@@ -1,0 +1,16 @@
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 600px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.panel-container {
+  /* background-color: #eee; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
