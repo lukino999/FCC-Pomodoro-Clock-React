@@ -1,9 +1,10 @@
 import './css/TimerLengthPanel.css';
 import React from 'react';
 
+
 const TimerLengthPanel = (props) => {
   //
-  const id = props.id;
+  const { id, length, decClick, incClick } = props;
 
   //
   return (
@@ -12,15 +13,26 @@ const TimerLengthPanel = (props) => {
 
       <div className='buttons-container'>
 
-        <button id={`${id.toLowerCase()}-decrement`}>-</button>
+        <button
+          id={`${id.toLowerCase()}-decrement`}
+          onClick={decClick}
+        >
+          -
+        </button>
 
-        <p id={`${id.toLowerCase()}-length`}>{props.length}</p>
+        <p id={`${id.toLowerCase()}-length`}>{length}</p>
 
-        <button id={`${id.toLowerCase()}-increment`}>+</button>
+        <button
+          id={`${id.toLowerCase()}-increment`}
+          onClick={incClick}
+        >
+          +
+        </button>
       </div>
 
     </div>
   );
 }
 
-export default TimerLengthPanel;
+
+export default TimerLengthPanel
