@@ -1,26 +1,36 @@
 import './css/TimerDisplay.css'
 import React from 'react';
 import { connect } from 'react-redux';
-import { reset, start } from '../actions'
+import { reset, start, stop } from '../actions'
 
 const TimerDisplay = (props) => {
   //
-  const mmss = props.timeLeft.toMMSS();
-  const { reset, start } = props;
+  const left = getMMSS(props.secondsLeft);
+  console.log(props);
+  const { reset, start, stop, isRunning, isSession } = props;
 
-  console.log(`Is running: ${props.isRunning}`);
+  let startStop;
+  let startStopText;
+
+  if (isRunning) {
+    startStop = stop;
+    startStopText = 'STOP';
+  } else {
+    startStop = start;
+    startStopText = 'START';
+  }
 
   return (
     <div className='timer-display' >
       <h2 id='timer-label'>
-        {props.isSession ? 'Session' : 'Break'}
+        {isSession ? 'Session' : 'Break'}
       </h2>
 
-      <p id='time-left' className='time-left'>{mmss}</p>
+      <p id='time-left' className='time-left'>{left}</p>
 
       <div className='timer-display-controls' >
-        <button id='start_stop' onClick={start}>
-          {props.isRunning ? 'STOP' : 'START'}
+        <button id='start_stop' onClick={startStop}>
+          {startStopText}
         </button>
         <button id='reset' onClick={reset}>
           RESET
@@ -45,22 +55,20 @@ const mapDispatchToProps = (dispatch) => {
     },
     start() {
       dispatch(start());
+    },
+    stop() {
+      dispatch(stop());
     }
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimerDisplay);
 
-
-
-// convert sec to mm:ss
-// https://stackoverflow.com/questions/6312993/javascript-seconds-to-time-string-with-format-hhmmss
-String.prototype.toMMSS = function () {
-  var sec_num = parseInt(this, 10); // don't forget the second param
-  var minutes = Math.floor(sec_num / 60);
-  var seconds = sec_num - (minutes * 60);
-
-  if (minutes < 10) { minutes = "0" + minutes; }
-  if (seconds < 10) { seconds = "0" + seconds; }
-  return minutes + ':' + seconds;
+const getMMSS = (seconds) => {
+  const min = Math.floor(seconds / 60);
+  const sec = seconds % 60;
+  let mmss = min < 10 ? '0' : '';
+  mmss += `${min}:`;
+  mmss += sec < 10 ? '0' : '';
+  return mmss + sec;
 }

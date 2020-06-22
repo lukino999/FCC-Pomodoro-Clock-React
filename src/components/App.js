@@ -20,7 +20,8 @@ const App = (props) => {
     breakDecrement,
     breakIncrement,
     sessionDecrement,
-    sessionIncrement
+    sessionIncrement,
+    secondsLeft
   } = props
 
   return (
@@ -42,7 +43,7 @@ const App = (props) => {
         />
 
       </div>
-      <TimerDisplay timeLeft={(60 * 25).toString()} />
+      <TimerDisplay secondsLeft={secondsLeft} />
     </div>
   )
 }
@@ -50,7 +51,8 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     breakLength: state.breakLength,
-    sessionLength: state.sessionLength
+    sessionLength: state.sessionLength,
+    secondsLeft: state.secondsLeft
   }
 }
 

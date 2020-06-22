@@ -5,6 +5,8 @@ export const SESSION_INCREMENT = 'SESSION_INCREMENT';
 export const SESSION_DECREMENT = 'SESSION_DECREMENT';
 export const RESET = 'RESET';
 export const START = 'START';
+export const DEC_TIME_LEFT = 'DEC_TIME_LEFT';
+export const STOP = 'STOP';
 
 // break action creators
 export const breakIncrement = () => {
@@ -28,7 +30,30 @@ export const reset = () => {
   return { type: RESET }
 }
 
-// timer
+
+
+
+// timer /////
+//////////////
 export const start = () => {
-  return { type: START }
+  return (dispatch) => {
+    let timerId = setInterval(dispatch, 1000, { type: DEC_TIME_LEFT });
+
+    dispatch({
+      type: START,
+      payload: timerId
+    });
+  }
+}
+
+export const stop = () => {
+  return (dispatch, getState) => {
+    clearInterval(getState().timerId);
+
+    dispatch({ type: STOP });
+  }
+}
+
+export const timeLeftDec = () => {
+  return { type: DEC_TIME_LEFT }
 }

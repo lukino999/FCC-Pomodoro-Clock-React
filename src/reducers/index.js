@@ -4,19 +4,23 @@ import {
   SESSION_INCREMENT,
   SESSION_DECREMENT,
   RESET,
-  START
+  START,
+  STOP,
+  DEC_TIME_LEFT,
 } from '../actions';
 
 const INITIAL_STATE = {
   breakLength: 5,
   sessionLength: 25,
   isSession: true,
-  isRunning: false
+  isRunning: false,
+  timerId: null,
+  secondsLeft: 25 * 60
 }
 
 export default (state = INITIAL_STATE, action) => {
   // destructure state
-  const { breakLength, sessionLength, timerLeft } = state;
+  const { breakLength, sessionLength, secondsLeft, timerId } = state;
 
 
   switch (action.type) {
@@ -52,11 +56,26 @@ export default (state = INITIAL_STATE, action) => {
       return INITIAL_STATE;
 
     case START:
+      console.log(action);
+      console.log(state);
       return {
         ...state,
-        isRunning: true
+        isRunning: true,
+        timerId: action.payload
       }
 
+    case STOP: {
+      return {
+        ...state,
+        isRunning: false
+      }
+    }
+
+    case DEC_TIME_LEFT:
+      return {
+        ...state,
+        secondsLeft: secondsLeft - 1
+      }
 
     default:
       return state;
