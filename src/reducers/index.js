@@ -3,7 +3,8 @@ import {
   BREAK_DECREMENT,
   SESSION_INCREMENT,
   SESSION_DECREMENT,
-  RESET
+  RESET,
+  START
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -49,6 +50,12 @@ export default (state = INITIAL_STATE, action) => {
 
     case RESET:
       return INITIAL_STATE;
+
+    case START:
+      return {
+        ...state,
+        isRunning: true
+      }
 
 
     default:

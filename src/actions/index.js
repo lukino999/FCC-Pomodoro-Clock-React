@@ -4,6 +4,7 @@ export const BREAK_DECREMENT = 'BREAK_DECREMENT';
 export const SESSION_INCREMENT = 'SESSION_INCREMENT';
 export const SESSION_DECREMENT = 'SESSION_DECREMENT';
 export const RESET = 'RESET';
+export const START = 'START';
 
 // break action creators
 export const breakIncrement = () => {
@@ -25,4 +26,9 @@ export const sessionDecrement = () => {
 
 export const reset = () => {
   return { type: RESET }
+}
+
+// timer
+export const start = () => {
+  return { type: START }
 }

@@ -1,13 +1,14 @@
 import './css/TimerDisplay.css'
 import React from 'react';
 import { connect } from 'react-redux';
-import { reset } from '../actions'
+import { reset, start } from '../actions'
 
 const TimerDisplay = (props) => {
   //
   const mmss = props.timeLeft.toMMSS();
-  const { reset } = props;
+  const { reset, start } = props;
 
+  console.log(`Is running: ${props.isRunning}`);
 
   return (
     <div className='timer-display' >
@@ -18,7 +19,7 @@ const TimerDisplay = (props) => {
       <p id='time-left' className='time-left'>{mmss}</p>
 
       <div className='timer-display-controls' >
-        <button id='start_stop'>
+        <button id='start_stop' onClick={start}>
           {props.isRunning ? 'STOP' : 'START'}
         </button>
         <button id='reset' onClick={reset}>
@@ -41,6 +42,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     reset() {
       dispatch(reset());
+    },
+    start() {
+      dispatch(start());
     }
   }
 }
