@@ -6,8 +6,7 @@ import {
   RESET,
   START,
   STOP,
-  DEC_TIME_LEFT,
-  SWAP
+  DEC_TIME_LEFT
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -15,17 +14,18 @@ const INITIAL_STATE = {
   sessionLength: 25,
   isSession: true,
   isRunning: false,
-  timerId: null,
   secondsLeft: 25 * 60
 }
 
 export default (state = INITIAL_STATE, action) => {
   // destructure state
-  const { breakLength, sessionLength, secondsLeft, isSession } = state;
+  const { breakLength, sessionLength, secondsLeft, isSession, isRunning } = state;
 
 
   switch (action.type) {
     case BREAK_INCREMENT:
+      if (isRunning) return state;
+      //
       if (breakLength === 60) return state; // max length 60m
       return {
         ...state,
@@ -33,6 +33,8 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case BREAK_DECREMENT:
+      if (isRunning) return state;
+      //
       if (breakLength === 1) return state; // min length 1
       return {
         ...state,
@@ -40,6 +42,8 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case SESSION_INCREMENT:
+      if (isRunning) return state;
+      //
       if (sessionLength === 60) return state; // max length 60m
       return {
         ...state,
@@ -48,6 +52,8 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case SESSION_DECREMENT:
+      if (isRunning) return state;
+      //
       if (sessionLength === 1) return state; // min length 1
       return {
         ...state,
@@ -73,13 +79,12 @@ export default (state = INITIAL_STATE, action) => {
     }
 
 
-
     case DEC_TIME_LEFT:
       let _secLeft;
       let _isSess;
       if (secondsLeft === 0) {
         _isSess = !isSession;
-        _secLeft = 60 * (_isSess ? sessionLength : breakLength) - 1;
+        _secLeft = 60 * (_isSess ? sessionLength : breakLength);
       } else {
         _isSess = isSession;
         _secLeft = secondsLeft - 1;
@@ -89,16 +94,6 @@ export default (state = INITIAL_STATE, action) => {
         secondsLeft: _secLeft,
         isSession: _isSess
       }
-
-
-
-    case SWAP:
-      return {
-        ...state,
-        secondsLeft: isSession ? breakLength * 60 : sessionLength * 60,
-        isSession: !isSession
-      }
-
 
 
     default:

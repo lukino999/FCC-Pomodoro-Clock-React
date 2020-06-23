@@ -1,3 +1,6 @@
+import accurateInterval from 'accurate-interval';
+
+
 // action constant
 export const BREAK_INCREMENT = 'BREAK_INCREMENT';
 export const BREAK_DECREMENT = 'BREAK_DECREMENT';
@@ -7,7 +10,6 @@ export const RESET = 'RESET';
 export const START = 'START';
 export const DEC_TIME_LEFT = 'DEC_TIME_LEFT';
 export const STOP = 'STOP';
-export const SWAP = 'SWAP';
 
 //
 
@@ -29,9 +31,15 @@ export const sessionDecrement = () => {
   return { type: SESSION_DECREMENT }
 }
 
+
+// timer
 export const reset = () => {
   return (dispatch, getStore) => {
-    clearInterval(getStore().timerId);
+    // clearInterval(getStore().timerId);
+    const timerId = getStore().timerId;
+    if (timerId != null) {
+      timerId.clear();
+    }
     dispatch({ type: RESET });
   }
 }
@@ -39,7 +47,10 @@ export const reset = () => {
 
 export const start = () => {
   return (dispatch) => {
-    let timerId = setInterval(dispatch, 1, { type: DEC_TIME_LEFT });
+    let timerId = accurateInterval((schedTime) => {
+      dispatch({ type: DEC_TIME_LEFT })
+    }, 1000);
+
     dispatch({
       type: START,
       payload: timerId
@@ -50,7 +61,10 @@ export const start = () => {
 
 export const stop = () => {
   return (dispatch, getStore) => {
-    clearInterval(getStore().timerId);
+    const timerId = getStore().timerId;
+    if (timerId != null) {
+      timerId.clear();
+    }
     dispatch({ type: STOP });
   }
 }

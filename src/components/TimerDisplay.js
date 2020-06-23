@@ -15,11 +15,8 @@ const TimerDisplay = (props) => {
   }
 
   ////
-  const left = getMMSS(props.secondsLeft);
-  console.log(left);
-
-
   const { reset, start, stop, isRunning, isSession } = props;
+  const left = getMMSS(props.secondsLeft);
 
   let startStop;
   let startStopText;
