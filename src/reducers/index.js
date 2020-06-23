@@ -7,6 +7,7 @@ import {
   START,
   STOP,
   DEC_TIME_LEFT,
+  SWAP
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -20,7 +21,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   // destructure state
-  const { breakLength, sessionLength, secondsLeft, timerId } = state;
+  const { breakLength, sessionLength, secondsLeft, isSession } = state;
 
 
   switch (action.type) {
@@ -42,22 +43,22 @@ export default (state = INITIAL_STATE, action) => {
       if (sessionLength === 60) return state; // max length 60m
       return {
         ...state,
-        sessionLength: sessionLength + 1
+        sessionLength: sessionLength + 1,
+        secondsLeft: secondsLeft + 60
       }
 
     case SESSION_DECREMENT:
       if (sessionLength === 1) return state; // min length 1
       return {
         ...state,
-        sessionLength: sessionLength - 1
+        sessionLength: sessionLength - 1,
+        secondsLeft: secondsLeft - 60
       }
 
     case RESET:
       return INITIAL_STATE;
 
     case START:
-      console.log(action);
-      console.log(state);
       return {
         ...state,
         isRunning: true,
@@ -71,13 +72,40 @@ export default (state = INITIAL_STATE, action) => {
       }
     }
 
+
+
     case DEC_TIME_LEFT:
+      let _secLeft;
+      let _isSess;
+      if (secondsLeft === 0) {
+        _isSess = !isSession;
+        _secLeft = 60 * (_isSess ? sessionLength : breakLength) - 1;
+      } else {
+        _isSess = isSession;
+        _secLeft = secondsLeft - 1;
+      }
       return {
         ...state,
-        secondsLeft: secondsLeft - 1
+        secondsLeft: _secLeft,
+        isSession: _isSess
       }
+
+
+
+    case SWAP:
+      return {
+        ...state,
+        secondsLeft: isSession ? breakLength * 60 : sessionLength * 60,
+        isSession: !isSession
+      }
+
+
 
     default:
       return state;
   }
 }
+
+
+
+//

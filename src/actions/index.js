@@ -7,6 +7,9 @@ export const RESET = 'RESET';
 export const START = 'START';
 export const DEC_TIME_LEFT = 'DEC_TIME_LEFT';
 export const STOP = 'STOP';
+export const SWAP = 'SWAP';
+
+//
 
 // break action creators
 export const breakIncrement = () => {
@@ -27,18 +30,16 @@ export const sessionDecrement = () => {
 }
 
 export const reset = () => {
-  return { type: RESET }
+  return (dispatch, getStore) => {
+    clearInterval(getStore().timerId);
+    dispatch({ type: RESET });
+  }
 }
 
 
-
-
-// timer /////
-//////////////
 export const start = () => {
   return (dispatch) => {
-    let timerId = setInterval(dispatch, 1000, { type: DEC_TIME_LEFT });
-
+    let timerId = setInterval(dispatch, 1, { type: DEC_TIME_LEFT });
     dispatch({
       type: START,
       payload: timerId
@@ -46,14 +47,10 @@ export const start = () => {
   }
 }
 
-export const stop = () => {
-  return (dispatch, getState) => {
-    clearInterval(getState().timerId);
 
+export const stop = () => {
+  return (dispatch, getStore) => {
+    clearInterval(getStore().timerId);
     dispatch({ type: STOP });
   }
-}
-
-export const timeLeftDec = () => {
-  return { type: DEC_TIME_LEFT }
 }

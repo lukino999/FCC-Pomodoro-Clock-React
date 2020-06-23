@@ -1,7 +1,6 @@
 import React from 'react';
 import './css/App.css';
 import { connect } from 'react-redux';
-import { reducer } from '../reducers';
 import {
   breakDecrement,
   breakIncrement,

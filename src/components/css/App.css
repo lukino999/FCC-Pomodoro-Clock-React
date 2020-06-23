@@ -5,6 +5,12 @@
 }
 
 .header {
+  /* temp margin to move below the test suite */
+  /* in narrow window ! REMOVE ! */
+  margin-top: 220px; 
+  /* remove above */
+  
+  
   text-align: center;
 }
 

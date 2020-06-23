@@ -4,9 +4,21 @@ import { connect } from 'react-redux';
 import { reset, start, stop } from '../actions'
 
 const TimerDisplay = (props) => {
-  //
+
+  const getMMSS = (seconds) => {
+    const min = Math.floor(seconds / 60);
+    const sec = seconds % 60;
+    let mmss = min < 10 ? '0' : '';
+    mmss += `${min}:`;
+    mmss += sec < 10 ? '0' : '';
+    return mmss + sec;
+  }
+
+  ////
   const left = getMMSS(props.secondsLeft);
-  console.log(props);
+  console.log(left);
+
+
   const { reset, start, stop, isRunning, isSession } = props;
 
   let startStop;
@@ -41,10 +53,11 @@ const TimerDisplay = (props) => {
   )
 }
 
+
 const mapStateToProps = (state) => {
   return {
     isSession: state.isSession,
-    isRunning: state.isRunning
+    isRunning: state.isRunning,
   }
 }
 
@@ -64,11 +77,3 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimerDisplay);
 
-const getMMSS = (seconds) => {
-  const min = Math.floor(seconds / 60);
-  const sec = seconds % 60;
-  let mmss = min < 10 ? '0' : '';
-  mmss += `${min}:`;
-  mmss += sec < 10 ? '0' : '';
-  return mmss + sec;
-}
