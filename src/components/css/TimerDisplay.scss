@@ -1,0 +1,42 @@
+@import './colors.scss';
+
+.timer-display {
+  background-color: $background;
+}
+
+h2 {
+  text-align: center;
+}
+
+.time-left-size {
+  font-size: 150px;
+}
+
+.timer-display-controls {
+  display: flex;
+  justify-content: space-around ;
+  
+}
+
+.session-break {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.off-the-screen {
+  position: fixed;
+  top: -100px
+}
+
+.session-break-on {
+  color: $lcd-on;
+}
+
+.session-break-off {
+  color: $lcd-off;
+}
+
+.text-invisible {
+  color: $background;
+}

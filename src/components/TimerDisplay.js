@@ -1,7 +1,8 @@
-import './css/TimerDisplay.css'
+import './css/TimerDisplay.scss'
 import React from 'react';
 import { connect } from 'react-redux';
 import { reset, start, stop } from '../actions'
+import Lcd from './Lcd';
 
 class TimerDisplay extends React.Component {
   constructor(props) {
@@ -61,11 +62,21 @@ class TimerDisplay extends React.Component {
           id='beep'
           ref={ref => this.player = ref}
         ></audio>
-        <h2 id='timer-label'>
+        <div id='timer-label' className='off-the-screen'>
           {isSession ? 'Session' : 'Break'}
-        </h2>
+        </div>
 
-        <p id='time-left' className='time-left'>{this.getMMSS(secondsLeft)}</p>
+
+        <Lcd backgroundText='88:88' className='time-left-size'>{this.getMMSS(secondsLeft)}</Lcd>
+
+        <div className='session-break'>
+          <div
+            className={isSession ? 'session-break-on' : 'session-break-off'}>
+            SESSION
+            </div>
+          <div className='text-invisible'>--</div>
+          <div className={isSession ? 'session-break-off' : 'session-break-on'}>BREAK</div>
+        </div>
 
         <div className='timer-display-controls' >
           <button id='start_stop' onClick={startStop}>
