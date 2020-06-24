@@ -5,7 +5,7 @@ export default function Lcd(props) {
   return (
     <div className={props.className}>
       <div className='display-background'>{props.backgroundText}
-        <div id='time-left' className='display-foreground'>{props.children}</div>
+        <div id={props.id} className='display-foreground'>{props.children}</div>
       </div>
     </div>
   )

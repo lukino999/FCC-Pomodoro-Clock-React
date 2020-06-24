@@ -66,8 +66,16 @@ class TimerDisplay extends React.Component {
           {isSession ? 'Session' : 'Break'}
         </div>
 
-
-        <Lcd backgroundText='88:88' className='time-left-size'>{this.getMMSS(secondsLeft)}</Lcd>
+        <div className='flex-space-around'>
+          <div></div>
+          <Lcd
+            id='time-left'
+            backgroundText='88:88'
+            className='time-left-size'>
+            {this.getMMSS(secondsLeft)}
+          </Lcd>
+          <div></div>
+        </div>
 
         <div className='session-break'>
           <div
@@ -78,8 +86,8 @@ class TimerDisplay extends React.Component {
           <div className={isSession ? 'session-break-off' : 'session-break-on'}>BREAK</div>
         </div>
 
-        <div className='timer-display-controls' >
-          <button id='start_stop' onClick={startStop}>
+        <div className='flex-space-around' >
+          <button className='round-button' id='start_stop' onClick={startStop}>
             {startStopText}
           </button>
           <button id='reset' onClick={this.reset}>

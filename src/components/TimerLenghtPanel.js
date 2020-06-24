@@ -1,5 +1,6 @@
-import './css/TimerLengthPanel.css';
+import './css/TimerLengthPanel.scss';
 import React from 'react';
+import Lcd from './Lcd';
 
 
 const TimerLengthPanel = (props) => {
@@ -20,7 +21,11 @@ const TimerLengthPanel = (props) => {
           -
         </button>
 
-        <p id={`${id.toLowerCase()}-length`}>{length}</p>
+        {/* <p id={`${id.toLowerCase()}-length`}>{length}</p> */}
+        <Lcd id={`${id.toLowerCase()}-length`} backgroundText='00' className='panel-font-size'>
+          {length}
+        </Lcd>
+
 
         <button
           id={`${id.toLowerCase()}-increment`}

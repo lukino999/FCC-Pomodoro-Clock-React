@@ -12,10 +12,9 @@ h2 {
   font-size: 150px;
 }
 
-.timer-display-controls {
+.flex-space-around {
   display: flex;
   justify-content: space-around ;
-  
 }
 
 .session-break {
@@ -39,4 +38,10 @@ h2 {
 
 .text-invisible {
   color: $background;
+}
+
+.round-button {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
 }
