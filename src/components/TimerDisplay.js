@@ -3,9 +3,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reset, start, stop } from '../actions'
 
-const TimerDisplay = (props) => {
+class TimerDisplay extends React.Component {
+  constructor(props) {
+    super(props);
+    this.sample = process.env.PUBLIC_URL + '/samples/alarm-clock-01.mp3';
+    this.player = React.createRef();
+  }
 
-  const getMMSS = (seconds) => {
+  getMMSS = (seconds) => {
     const min = Math.floor(seconds / 60);
     const sec = seconds % 60;
     let mmss = min < 10 ? '0' : '';
@@ -14,40 +19,66 @@ const TimerDisplay = (props) => {
     return mmss + sec;
   }
 
-  ////
-  const { reset, start, stop, isRunning, isSession } = props;
-  const left = getMMSS(props.secondsLeft);
-
-  let startStop;
-  let startStopText;
-
-  if (isRunning) {
-    startStop = stop;
-    startStopText = 'STOP';
-  } else {
-    startStop = start;
-    startStopText = 'START';
+  async playAlarm() {
+    try {
+      await this.player.play();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  return (
-    <div className='timer-display' >
-      <h2 id='timer-label'>
-        {isSession ? 'Session' : 'Break'}
-      </h2>
+  reset = () => {
+    this.props.reset();
+    this.player.pause();
+    this.player.currentTime = 0;
+  }
 
-      <p id='time-left' className='time-left'>{left}</p>
 
-      <div className='timer-display-controls' >
-        <button id='start_stop' onClick={startStop}>
-          {startStopText}
+  render() {
+    const { start, stop, isRunning, isSession, secondsLeft } = this.props;
+
+    if (secondsLeft === 0) {
+      this.playAlarm()
+    }
+
+    let startStop;
+    let startStopText;
+
+    if (isRunning) {
+      startStop = stop;
+      startStopText = 'STOP';
+    } else {
+      startStop = start;
+      startStopText = 'START';
+    }
+
+    return (
+      <div className='timer-display' >
+        <audio
+          src={this.sample}
+          preload=''
+          className='clip'
+          id='beep'
+          ref={ref => this.player = ref}
+        ></audio>
+        <h2 id='timer-label'>
+          {isSession ? 'Session' : 'Break'}
+        </h2>
+
+        <p id='time-left' className='time-left'>{this.getMMSS(secondsLeft)}</p>
+
+        <div className='timer-display-controls' >
+          <button id='start_stop' onClick={startStop}>
+            {startStopText}
+          </button>
+          <button id='reset' onClick={this.reset}>
+            RESET
         </button>
-        <button id='reset' onClick={reset}>
-          RESET
-        </button>
+        </div>
+
       </div>
-
-    </div>
-  )
+    )
+  }
 }
 
 
