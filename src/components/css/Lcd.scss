@@ -1,0 +1,20 @@
+@import './colors.scss';
+@import url(https://allfont.net/allfont.css?fonts=digital-7-mono);
+
+
+
+.display-background {
+  font-family: 'Digital-7 Mono', arial;
+  font-size: 100px;
+  color: $lcd-off;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.display-foreground {
+  color: $lcd-on;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
