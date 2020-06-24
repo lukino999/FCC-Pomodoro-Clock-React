@@ -1,0 +1,61 @@
+$lcd-off: #020;
+$lcd-on: #090;
+$background: #111;
+$buttons-background: #333;
+$red-inactive: #482b2b;
+$gren-inactive: #2b482b;
+$led-red: #944;
+$led-green: #494;
+$regular-button: 80px;
+$large-button: 120px;
+$text-color: #999;
+
+.round-button {
+  background-color: $buttons-background;
+  border-radius: 100%;
+}
+.round-button:focus {
+  // border-color:transparent!important;
+  outline:none;
+}
+
+.large {
+  height: $large-button;
+  width: $large-button;
+  font-size: $large-button *.40;
+}
+
+.regular {
+  height: $regular-button;
+  width: $regular-button;
+  font-size: $regular-button * .45;
+}
+
+.reset-text-size {
+  font-size: 50px;
+}
+
+.play-stop-text-size {
+  font-size: 25px;
+}
+
+.text-color {
+  color: $text-color;
+}
+
+.red-inactive {
+  color: $red-inactive;
+}
+
+.led-red {
+  color: $led-red;
+}
+
+.green-inactive {
+  color: $gren-inactive;
+}
+
+.led-green {
+  color: $led-green;
+}
+

@@ -10,15 +10,15 @@ const TimerLengthPanel = (props) => {
   //
   return (
     <div className='timer-length-panel'>
-      <h1 id={`${id.toLowerCase()}-label`}>{id}</h1>
 
       <div className='buttons-container'>
 
         <button
+          className='round-button regular text-color'
           id={`${id.toLowerCase()}-decrement`}
           onClick={decClick}
         >
-          -
+          <i className='fa fa-arrow-down' aria-hidden='true'></i>
         </button>
 
         {/* <p id={`${id.toLowerCase()}-length`}>{length}</p> */}
@@ -28,12 +28,15 @@ const TimerLengthPanel = (props) => {
 
 
         <button
+          className='round-button regular text-color'
           id={`${id.toLowerCase()}-increment`}
           onClick={incClick}
         >
-          +
+          <i className='fa fa-arrow-up' aria-hidden='true'></i>
         </button>
       </div>
+
+      <h1 className='text-color' id={`${id.toLowerCase()}-label`}>{id}</h1>
 
     </div>
   );

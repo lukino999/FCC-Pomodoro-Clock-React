@@ -1,0 +1,26 @@
+@import './common.scss';
+
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 700px;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-body {
+  background-color: $background;
+  padding: 30px;
+  border-radius: 30px;
+  border: 15px solid $buttons-background;
+}
+
+
+.panel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

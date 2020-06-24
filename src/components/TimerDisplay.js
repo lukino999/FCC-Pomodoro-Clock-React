@@ -54,7 +54,7 @@ class TimerDisplay extends React.Component {
     }
 
     return (
-      <div className='timer-display' >
+      <div className='timer-display text-color' >
         <audio
           src={this.sample}
           preload=''
@@ -67,14 +67,29 @@ class TimerDisplay extends React.Component {
         </div>
 
         <div className='flex-space-around'>
-          <div></div>
+          <button
+            id='start_stop'
+            className='round-button large'
+            onClick={startStop}>
+            {/* {startStopText} */}
+            <i
+              className={`fa fa-pause led-padding ${isRunning ? 'led-red' : 'red-inactive'}`}
+              aria-hidden='true'></i>
+            <i className={`fa fa-play led-padding ${isRunning ? 'green-inactive' : 'led-green'}`}
+              aria-hidden='true'></i>
+          </button>
           <Lcd
             id='time-left'
             backgroundText='88:88'
             className='time-left-size'>
             {this.getMMSS(secondsLeft)}
           </Lcd>
-          <div></div>
+          <button
+            id='reset'
+            className='round-button large text-color'
+            onClick={this.reset}>
+            <i className='fa fa-refresh' aria-hidden='true'></i>
+          </button>
         </div>
 
         <div className='session-break'>
@@ -82,17 +97,15 @@ class TimerDisplay extends React.Component {
             className={isSession ? 'session-break-on' : 'session-break-off'}>
             SESSION
             </div>
-          <div className='text-invisible'>--</div>
+          <div className='text-invisible'>--III----</div>
           <div className={isSession ? 'session-break-off' : 'session-break-on'}>BREAK</div>
+          <div className='text-invisible'>--</div>
+
         </div>
 
         <div className='flex-space-around' >
-          <button className='round-button' id='start_stop' onClick={startStop}>
-            {startStopText}
-          </button>
-          <button id='reset' onClick={this.reset}>
-            RESET
-        </button>
+
+
         </div>
 
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/App.css';
+import './css/App.scss';
 import { connect } from 'react-redux';
 import {
   breakDecrement,
@@ -25,25 +25,31 @@ const App = (props) => {
 
   return (
     <div className='app'>
-      <h1 className='header'>Pomodoro Clock</h1>
-      <div className='panel-container'>
-        <TimerLengthPanel
-          id='Break'
-          length={breakLength}
-          incClick={breakIncrement}
-          decClick={breakDecrement}
-        />
 
-        <TimerLengthPanel
-          id='Session'
-          length={sessionLength}
-          incClick={sessionIncrement}
-          decClick={sessionDecrement}
-        />
+      <div className='clock-body'>
+        <TimerDisplay secondsLeft={secondsLeft} />
+
+        <div className='panel-container'>
+
+          <TimerLengthPanel
+            id='Session'
+            length={sessionLength}
+            incClick={sessionIncrement}
+            decClick={sessionDecrement}
+          />
+
+          <TimerLengthPanel
+            id='Break'
+            length={breakLength}
+            incClick={breakIncrement}
+            decClick={breakDecrement}
+          />
+
+        </div>
 
       </div>
-      <TimerDisplay secondsLeft={secondsLeft} />
-    </div>
+
+    </div >
   )
 }
 

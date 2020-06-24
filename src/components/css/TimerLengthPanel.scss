@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import './common.scss';
 
 .timer-length-panel {
   /* remove */
@@ -9,12 +9,14 @@
 
 h1 {
   text-align: center;
+  margin: 0 auto 0
 }
 
 .buttons-container{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .panel-font-size {

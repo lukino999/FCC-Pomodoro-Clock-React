@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import './common.scss';
 
 .timer-display {
   background-color: $background;
@@ -40,8 +40,6 @@ h2 {
   color: $background;
 }
 
-.round-button {
-  border-radius: 100%;
-  height: 50px;
-  width: 50px;
+.led-padding {
+  padding:4px;
 }
