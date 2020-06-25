@@ -53,6 +53,9 @@ class TimerDisplay extends React.Component {
       startStopText = 'START';
     }
 
+    const sessionOnOffClass = isSession ? 'session-break-on' : 'session-break-off';
+    const breakOnOffClass = isSession ? 'session-break-off' : 'session-break-on';
+
     return (
       <div className='timer-display text-color' >
         <audio
@@ -71,11 +74,10 @@ class TimerDisplay extends React.Component {
             id='start_stop'
             className='round-button large'
             onClick={startStop}>
-            {/* {startStopText} */}
             <i
-              className={`fa fa-pause led-padding ${isRunning ? 'led-red' : 'red-inactive'}`}
+              className={`fa fa-pause led-padding ${isRunning ? 'pause-led-on' : 'pause-led-off'}`}
               aria-hidden='true'></i>
-            <i className={`fa fa-play led-padding ${isRunning ? 'green-inactive' : 'led-green'}`}
+            <i className={`fa fa-play led-padding ${isRunning ? 'play-led-off' : 'play-led-on'}`}
               aria-hidden='true'></i>
           </button>
           <Lcd
@@ -93,14 +95,8 @@ class TimerDisplay extends React.Component {
         </div>
 
         <div className='session-break'>
-          <div
-            className={isSession ? 'session-break-on' : 'session-break-off'}>
-            SESSION
-            </div>
-          <div className='text-invisible'>--III----</div>
-          <div className={isSession ? 'session-break-off' : 'session-break-on'}>BREAK</div>
-          <div className='text-invisible'>--</div>
-
+          <div className={`half-width ${sessionOnOffClass}`}>SESSION</div>
+          <div className={`half-width ${breakOnOffClass}`}>BREAK</div>
         </div>
 
         <div className='flex-space-around' >

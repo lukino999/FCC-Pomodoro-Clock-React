@@ -32,14 +32,14 @@ const App = (props) => {
         <div className='panel-container'>
 
           <TimerLengthPanel
-            id='Session'
+            id='SESSION'
             length={sessionLength}
             incClick={sessionIncrement}
             decClick={sessionDecrement}
           />
 
           <TimerLengthPanel
-            id='Break'
+            id='BREAK'
             length={breakLength}
             incClick={breakIncrement}
             decClick={breakDecrement}
@@ -48,7 +48,7 @@ const App = (props) => {
         </div>
 
       </div>
-
+      <footer>FreeCodeCamp Pomodoro Clock - &copy; Luca M - <a href='#'>source</a></footer>
     </div >
   )
 }

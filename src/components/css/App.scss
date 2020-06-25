@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .clock-body {
@@ -22,5 +21,14 @@
 .panel-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+footer {
+  margin: 20px auto;
+}
+
+footer a, a:visited{
+  text-decoration: none;
+  color: blue;
 }

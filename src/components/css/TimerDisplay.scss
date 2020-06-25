@@ -2,6 +2,7 @@
 
 .timer-display {
   background-color: $background;
+  margin-top: 10px;
 }
 
 h2 {
@@ -23,9 +24,10 @@ h2 {
   font-size: 40px;
 }
 
-.off-the-screen {
-  position: fixed;
-  top: -100px
+.half-width {
+  width: 50%;
+  justify-content: center;
+  text-align: center;
 }
 
 .session-break-on {
@@ -42,4 +44,20 @@ h2 {
 
 .led-padding {
   padding:4px;
+}
+
+.pause-led-off {
+  color: $red-inactive;
+}
+
+.pause-led-on {
+  color: $led-red;
+}
+
+.play-led-off {
+  color: $gren-inactive;
+}
+
+.play-led-on {
+  color: $led-green;
 }

@@ -1,11 +1,11 @@
 $lcd-off: #020;
-$lcd-on: #090;
+$lcd-on: #4b4;
 $background: #111;
 $buttons-background: #333;
 $red-inactive: #482b2b;
 $gren-inactive: #2b482b;
-$led-red: #944;
-$led-green: #494;
+$led-red: #b44;
+$led-green: #4b4;
 $regular-button: 80px;
 $large-button: 120px;
 $text-color: #999;
@@ -43,19 +43,8 @@ $text-color: #999;
   color: $text-color;
 }
 
-.red-inactive {
-  color: $red-inactive;
-}
-
-.led-red {
-  color: $led-red;
-}
-
-.green-inactive {
-  color: $gren-inactive;
-}
-
-.led-green {
-  color: $led-green;
+.off-the-screen {
+  position: fixed;
+  top: -100px
 }
 

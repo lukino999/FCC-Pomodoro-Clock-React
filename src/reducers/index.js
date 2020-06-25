@@ -18,7 +18,7 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-  // destructure state
+
   const { breakLength, sessionLength, secondsLeft, isSession, isRunning } = state;
 
 
