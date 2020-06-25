@@ -48,7 +48,9 @@ const App = (props) => {
         </div>
 
       </div>
-      <footer>FreeCodeCamp Pomodoro Clock - &copy; Luca M - <a href='#'>source</a></footer>
+      <footer>
+        FreeCodeCamp Pomodoro Clock - &copy; Luca M -
+        <a href='https://github.com/lukino999/FCC-Pomodoro-Clock-React' target='_blank'>source</a></footer>
     </div >
   )
 }
