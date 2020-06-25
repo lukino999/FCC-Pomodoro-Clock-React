@@ -1,5 +1,9 @@
 @import './common.scss';
-@import url(https://allfont.net/allfont.css?fonts=digital-7-mono);
+
+@font-face {
+  font-family: 'Digital-7 Mono';
+  src: local('Digital-7 Mono'), url(./fonts/digital-7-mono.woff) format('woff');
+}
 
 
 
