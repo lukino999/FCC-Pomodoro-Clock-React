@@ -5,11 +5,20 @@ import Lcd from './Lcd';
 
 const TimerLengthPanel = (props) => {
   //
-  const { id, length, decClick, incClick } = props;
+  const { id, length, decClick, incClick, isSession } = props;
+
+  let sessionOnOffClass;
+  if (isSession) {
+    sessionOnOffClass = (id.toLowerCase() === 'session') ? 'session-break-on' : 'session-break-off';
+  } else {
+    sessionOnOffClass = (id.toLowerCase() === 'session') ? 'session-break-off' : 'session-break-on';
+  }
 
   //
   return (
     <div className='timer-length-panel'>
+
+      <div id={`${id.toLowerCase()}-label`} className={`session-break ${sessionOnOffClass}`}>{id}</div>
 
       <div className='buttons-container'>
 
@@ -34,7 +43,7 @@ const TimerLengthPanel = (props) => {
         </button>
       </div>
 
-      <h1 className='text-color off-the-screen' id={`${id.toLowerCase()}-label`}>{id}</h1>
+      {/* <h1 className='text-color off-the-screen' id={`${id.toLowerCase()}-label`}>{id}</h1> */}
 
     </div>
   );

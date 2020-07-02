@@ -1,14 +1,18 @@
 @import './common.scss';
 
 .timer-length-panel {
-  background-color: $background;
-  
+  // background-color: $background;
+  display: flex;
+  flex-direction: column;
   width: 50%;
 }
 
-h1 {
-  text-align: center;
-  margin: 0 auto 0
+.session-break {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: $sess-brk-text-size;
+  margin-top: 30px;
 }
 
 .buttons-container{
@@ -16,7 +20,6 @@ h1 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   height: 100%;
 }
 
@@ -24,8 +27,33 @@ h1 {
   font-size: 100px;
 }
 
+.session-break-on {
+  color: $lcd-on;
+}
+
+.session-break-off {
+  color: $lcd-off;
+}
+
+.half-width {
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  text-align: center;
+}
+
 @media (orientation: portrait) {
   .timer-length-panel {
     width: 100%;
+  }
+}
+
+@media only screen and (max-device-width: $maxdw-1024) {
+  #br {
+    height: 50px;
+  }
+
+  .buttons-container{
+    align-items: flex-start;
   }
 }

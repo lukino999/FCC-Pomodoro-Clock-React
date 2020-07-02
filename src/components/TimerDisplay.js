@@ -100,15 +100,15 @@ class TimerDisplay extends React.Component {
 
         </div>
 
-        <div className='session-break'>
+        {/* <div className='session-break'>
           <div className={`half-width ${sessionOnOffClass}`}>SESSION</div>
           <div className={`half-width ${breakOnOffClass}`}>BREAK</div>
-        </div>
+        </div> */}
 
-        <div className='flex-space-around' >
+        {/* <div className='flex-space-around' >
 
 
-        </div>
+        </div> */}
 
       </div>
     )

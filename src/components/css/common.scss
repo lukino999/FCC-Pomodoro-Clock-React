@@ -8,7 +8,10 @@ $led-red: #b44;
 $led-green: #4b4;
 $regular-button: 80px;
 $large-button: 120px;
+$sess-brk-text-size: 40px;
+$time-left-text-size: 150px;
 $text-color: #999;
+$maxdw-1024: 1024px;
 
 .round-button {
   background-color: $buttons-background;
@@ -47,4 +50,3 @@ $text-color: #999;
   position: fixed;
   top: -100px
 }
-

@@ -20,7 +20,8 @@ const App = (props) => {
     breakIncrement,
     sessionDecrement,
     sessionIncrement,
-    secondsLeft
+    secondsLeft,
+    isSession
   } = props
 
   return (
@@ -36,6 +37,7 @@ const App = (props) => {
             length={sessionLength}
             incClick={sessionIncrement}
             decClick={sessionDecrement}
+            isSession={isSession}
           />
 
           <TimerLengthPanel
@@ -43,6 +45,7 @@ const App = (props) => {
             length={breakLength}
             incClick={breakIncrement}
             decClick={breakDecrement}
+            isSession={isSession}
           />
 
         </div>
@@ -60,7 +63,8 @@ const mapStateToProps = (state) => {
   return {
     breakLength: state.breakLength,
     sessionLength: state.sessionLength,
-    secondsLeft: state.secondsLeft
+    secondsLeft: state.secondsLeft,
+    isSession: state.isSession
   }
 }
 
