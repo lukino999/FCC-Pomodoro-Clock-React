@@ -21,7 +21,7 @@ const TimerLengthPanel = (props) => {
           <i className='fa fa-arrow-down' aria-hidden='true'></i>
         </button>
 
-        <Lcd id={`${id.toLowerCase()}-length`} backgroundText='00' className='panel-font-size'>
+        <Lcd id={`${id.toLowerCase()}-length`} backgroundText='88' className='panel-font-size'>
           {length}
         </Lcd>
 
