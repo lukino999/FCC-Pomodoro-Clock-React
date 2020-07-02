@@ -15,7 +15,8 @@ h2 {
 
 .flex-space-around {
   display: flex;
-  justify-content: space-around ;
+  justify-content: space-evenly ;
+  align-items: center;
 }
 
 .session-break {
@@ -60,4 +61,42 @@ h2 {
 
 .play-led-on {
   color: $led-green;
+}
+
+
+
+@media (orientation: landscape) {
+  
+}
+
+@media (orientation: portrait) {
+
+  #start_stop {
+    order: 1;
+    flex-basis: $large-button;
+  }
+
+  #reset {
+    order: 1;
+    flex-basis: $large-button;
+
+  }
+
+  #br {
+    flex-basis: 100%;
+  }
+
+  #time-left {
+    order: 2;
+  }
+
+  .flex-space-around {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-device-width : 640px) {
+  #br {
+    height: 50px;
+  }
 }

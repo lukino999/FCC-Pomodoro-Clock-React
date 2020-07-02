@@ -80,18 +80,24 @@ class TimerDisplay extends React.Component {
             <i className={`fa fa-play led-padding ${isRunning ? 'play-led-off' : 'play-led-on'}`}
               aria-hidden='true'></i>
           </button>
+
+
           <Lcd
             id='time-left'
             backgroundText='88:88'
             className='time-left-size'>
             {this.getMMSS(secondsLeft)}
           </Lcd>
+
+          <div id='br'></div>
+
           <button
             id='reset'
             className='round-button large text-color'
             onClick={this.reset}>
             <i className='fa fa-refresh' aria-hidden='true'></i>
           </button>
+
         </div>
 
         <div className='session-break'>
