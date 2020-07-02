@@ -1,0 +1,4 @@
+body {
+  touch-action: pan-x pinch-zoom;
+  margin: 0;
+}
