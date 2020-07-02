@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/FCC-Pomodoro-Clock-React/static/css/main.784a0d2f.chunk.css",
-    "main.js": "/FCC-Pomodoro-Clock-React/static/js/main.d2df53b5.chunk.js",
-    "main.js.map": "/FCC-Pomodoro-Clock-React/static/js/main.d2df53b5.chunk.js.map",
+    "main.css": "/FCC-Pomodoro-Clock-React/static/css/main.e559f867.chunk.css",
+    "main.js": "/FCC-Pomodoro-Clock-React/static/js/main.34a49845.chunk.js",
+    "main.js.map": "/FCC-Pomodoro-Clock-React/static/js/main.34a49845.chunk.js.map",
     "runtime-main.js": "/FCC-Pomodoro-Clock-React/static/js/runtime-main.d960b800.js",
     "runtime-main.js.map": "/FCC-Pomodoro-Clock-React/static/js/runtime-main.d960b800.js.map",
-    "static/js/2.1bb269de.chunk.js": "/FCC-Pomodoro-Clock-React/static/js/2.1bb269de.chunk.js",
-    "static/js/2.1bb269de.chunk.js.map": "/FCC-Pomodoro-Clock-React/static/js/2.1bb269de.chunk.js.map",
+    "static/js/2.6f9de1f6.chunk.js": "/FCC-Pomodoro-Clock-React/static/js/2.6f9de1f6.chunk.js",
+    "static/js/2.6f9de1f6.chunk.js.map": "/FCC-Pomodoro-Clock-React/static/js/2.6f9de1f6.chunk.js.map",
     "index.html": "/FCC-Pomodoro-Clock-React/index.html",
-    "precache-manifest.1956740b34c4584a850f550e0d0d311f.js": "/FCC-Pomodoro-Clock-React/precache-manifest.1956740b34c4584a850f550e0d0d311f.js",
+    "precache-manifest.8190c6cc789be7a7562e5f7f2149b17e.js": "/FCC-Pomodoro-Clock-React/precache-manifest.8190c6cc789be7a7562e5f7f2149b17e.js",
     "service-worker.js": "/FCC-Pomodoro-Clock-React/service-worker.js",
-    "static/css/main.784a0d2f.chunk.css.map": "/FCC-Pomodoro-Clock-React/static/css/main.784a0d2f.chunk.css.map",
-    "static/js/2.1bb269de.chunk.js.LICENSE.txt": "/FCC-Pomodoro-Clock-React/static/js/2.1bb269de.chunk.js.LICENSE.txt",
+    "static/css/main.e559f867.chunk.css.map": "/FCC-Pomodoro-Clock-React/static/css/main.e559f867.chunk.css.map",
+    "static/js/2.6f9de1f6.chunk.js.LICENSE.txt": "/FCC-Pomodoro-Clock-React/static/js/2.6f9de1f6.chunk.js.LICENSE.txt",
     "static/media/Lcd.scss": "/FCC-Pomodoro-Clock-React/static/media/digital-7-mono.cdd751c4.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.d960b800.js",
-    "static/js/2.1bb269de.chunk.js",
-    "static/css/main.784a0d2f.chunk.css",
-    "static/js/main.d2df53b5.chunk.js"
+    "static/js/2.6f9de1f6.chunk.js",
+    "static/css/main.e559f867.chunk.css",
+    "static/js/main.34a49845.chunk.js"
   ]
 }
